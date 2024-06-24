@@ -1,10 +1,14 @@
-
+import Sidebar from "./components/Sidebar"
 
 function App() {
  
 
   return (
-    <div className="w-full h-20 bg-blue-100">
+    <div className="h-screen bg-black">
+
+      <div className="h-[90%] flex">
+        <Sidebar></Sidebar>
+      </div>
      
     </div>
   )
