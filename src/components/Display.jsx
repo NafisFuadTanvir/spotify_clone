@@ -1,5 +1,6 @@
 import { Routes,Route } from "react-router-dom";
 import Displayhome from "./Displayhome";
+import DisplayALbum from "./DisplayALbum";
 
 const Display = () => {
     return (
@@ -7,6 +8,7 @@ const Display = () => {
             <Routes>
 
                 <Route path="/" element={<Displayhome></Displayhome>}></Route>
+                <Route path="/album/:id" element={<DisplayALbum></DisplayALbum>}></Route>
             </Routes>
             
         </div>
