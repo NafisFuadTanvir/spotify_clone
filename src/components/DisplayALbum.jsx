@@ -1,10 +1,13 @@
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
-import { albumsData, assets } from "../assets/assets";
+import { albumsData, assets,songsData } from "../assets/assets";
+import { useContext } from "react";
+import { PlayersContext } from "../context/PlayerContextProvider";
 
 const DisplayALbum = () => {
   const { id } = useParams();
   const albumdata = albumsData[id];
+  const {playWithId}= useContext(PlayersContext)
 
   return (
     <div>
@@ -36,6 +39,30 @@ const DisplayALbum = () => {
             <img className="m-auto w-4" src={assets.clock_icon} alt="" />
 
         </div>
+        <hr />
+
+        {
+          songsData.map((data)=>(
+            <div onClick={()=>playWithId(data.id)} key={data.id} className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer">
+             
+             <p className="text-white">
+
+              <b className="mr-4 text-[#a7a7a7]">{data.id+1}</b>
+              <img className="inline w-10 mr-5" src={data.image} alt="" />
+              {data.name}
+
+             </p>
+             <p className="text-[15px]">{albumdata.name}</p>
+             <p className="text-[15px] hidden sm:block">5 days ago</p>
+             <p className="text-[15px] text-center">{data.duration}</p>
+
+
+            </div>
+          ))
+
+        }
+
+
 
 
     </div>
